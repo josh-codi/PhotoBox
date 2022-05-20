@@ -5,5 +5,6 @@ from . import views
 app_name = 'Photo'
 
 urlpatterns = [
-    path('', views.home, name="home")
+    path('', views.home, name="home"),
+    # path('', views.contact, name='contact'),
 ]

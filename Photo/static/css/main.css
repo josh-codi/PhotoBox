@@ -1,4 +1,7 @@
-
+html{
+    width: 100% !important;
+    overflow-x: hidden !important;
+}
 body{
     background-color: ghostwhite;
 }
@@ -23,7 +26,7 @@ body{
 }
 
 .carousel-inner .carousel-item:nth-child(3) {
-    background-image: url('../img/vot2.png');
+    background-image: url('../img/vot.png');
 }
 
 .carousel-item{
