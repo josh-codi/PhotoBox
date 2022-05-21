@@ -7,46 +7,21 @@
         <!-- HOME SERVICE SECTION -->
         <section class="home_services">
             <h3>Our Services</h3><hr/>
+            
             <aside class="row services_inner container">
-                <div class="card service_item col" style="width: 18rem;">
-                    <div class="card-img-top"></div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's
-                            content.
-                        </p>
-                        <center>
-                            <button class="btn btn-outline-success">View Details</button>
-                        </center>
+                {% for service in services %}
+                    <div class="card service_item col-4" style="width: 18rem;">
+                        <div class="card-img-top" style="background: url({{service.image.url}})"></div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{service.details|truncatechars:'100'}}
+                            </p>
+                            <center>
+                                <button class="btn btn-outline-success">View Details</button>
+                            </center>
+                        </div>
                     </div>
-                </div>
-
-                <div class="card service_item col" style="width: 18rem;">
-                    <div class="card-img-top"></div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's
-                            content.
-                        </p>
-                        <center>
-                            <button class="btn btn-outline-success">View Details</button>
-                        </center>
-                    </div>
-                </div>
-
-                <div class="card service_item col" style="width: 18rem;">
-                    <div class="card-img-top"></div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's
-                            content.
-                        </p>
-                        <center>
-                            <button class="btn btn-outline-success">View Details</button>
-                        </center>
-                    </div>
-                </div>
-
+                {% endfor %}
             </aside>
 
         </section><br/><br/>
@@ -101,18 +76,10 @@
 
             <aside class="contact_inner row">
             <div class="contact_form col-sm-7 col-lg-6 col-md-6">
-                {% comment %} <form>
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
-                    <br/>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form><br/> {% endcomment %}
+                {% if message_name %}
+                    <h5 class="text-success">Thank you, {{message_name}}</h5>
+                    <small class="text-primary">You will hear from us very soon</small>
+                {% endif %}
                 {% include './contact.html' %}
                 <h3>Follow us</h3>
                 <aside class="media_icons">
@@ -130,5 +97,12 @@
             <div class="contact_side_img col-sm-7 col-lg-6 col-md-6"></div>
             </aside>
         </section><br/><br/>
+
+        <script>
+            const submit =(e)=>{
+                e.preventDefault();
+                alert('hey')
+            }
+        </script>
     </main>
 {% endblock  %}
