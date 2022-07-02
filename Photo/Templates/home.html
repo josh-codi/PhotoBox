@@ -1,7 +1,44 @@
-
 {% extends './base.html' %}
-
-{% block content %}
+{% block content%}
+            <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Reyah</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-md-auto gap-2">
+                        <li class="nav-item rounded">
+                        <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-fill me-2"></i>Home</a>
+                        </li>
+                        <li class="nav-item rounded">
+                        <a class="nav-link" href="#"><i class="bi bi-people-fill me-2"></i>About</a>
+                        </li>
+                        <li class="nav-item rounded">
+                        <a class="nav-link" href="#"><i class="bi bi-telephone-fill me-2"></i>Contact</a>
+                        </li>
+                        <li class="nav-item dropdown rounded">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill me-2"></i>Categories</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">All</a></li>
+                                {% comment %} {% for c in categories %} {% endcomment %}
+                                    {% comment %} <li><a class="dropdown-item" href="#">{{c.name|title}}</a></li> {% endcomment %}
+                                {% comment %} {% endfor %} {% endcomment %}
+                                <li><a class="dropdown-item" href="#">home</a></li>
+                                <li><a class="dropdown-item" href="#">home</a></li>
+                                <li><a class="dropdown-item" href="#">home</a></li>
+                                <li>
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        </header>
     <main>
         <br/>
         <!-- HOME SERVICE SECTION -->
@@ -10,11 +47,11 @@
             
             <aside class="row services_inner container">
                 {% for service in services %}
-                    <div class="card service_item col-4" style="width: 18rem;">
+                    <div class="card service_item col-3" style="width: 16rem;">
                         <div class="card-img-top" style="background: url({{service.image.url}})"></div>
                         <div class="card-body">
                             <p class="card-text">
-                                {{service.details|truncatechars:'100'}}
+                                {{service.details|truncatewords:'12'}}
                             </p>
                             <center>
                                 <button class="btn btn-outline-success">View Details</button>
@@ -80,7 +117,7 @@
                     <h5 class="text-success">Thank you, {{message_name}}</h5>
                     <small class="text-primary">You will hear from us very soon</small>
                 {% endif %}
-                {% include './contact.html' %}
+                {% include 'contact.html' %}
                 <h3>Follow us</h3>
                 <aside class="media_icons">
                     <a href="">

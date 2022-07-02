@@ -144,13 +144,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 env = environ.Env()
-# # reading .env file
+# reading .env file
 environ.Env.read_env()
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'odamejoshua37@gmail.com'
-EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = 'securesally@gmail.com'
+EMAIL_HOST_PASSWORD = "stpricbztlwugbrf"
 EMAIL_USE_TLS = True
+
+# DEFAULT_FROM_EMAIL = 'odamejoshua37@gmail.com'
+# SERVER_EMAIL = 'odamejoshua37@gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'odamejoshua37@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Snecras2357'
